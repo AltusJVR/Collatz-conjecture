@@ -1,0 +1,25 @@
+{
+  "name": "x3n",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "sass": "sass --watch --style=compressed --embed-source-map  scss/:css/",
+    "start": "rm -rf tmp && parcel serve './src/index.html' --dist-dir tmp -p 8000 --no-cache"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AltusJVR/x3n.git"
+  },
+  "author": "Altus Janse Van Rensburg <albertusbjvr@gmail.com> (https://github.com/AltusJVR/)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AltusJVR/x3n/issues"
+  },
+  "homepage": "https://github.com/AltusJVR/x3n#readme",
+  "dependencies": {
+    "parcel": "^2.0.0-nightly.824"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.0.0-nightly.826"
+  }
+}

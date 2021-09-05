@@ -1,0 +1,8 @@
+.vscode/
+
+node_modules/
+tmp/
+dist/
+test.js
+.parcel-cache/
+css/
