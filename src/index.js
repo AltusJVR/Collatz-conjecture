@@ -4,15 +4,26 @@ const chooseNumberForm = document.querySelector('.choose_number_form');
 const chooseNumber = document.querySelector('.choose_number');
 const outputList = document.querySelector('.output_list');
 
+const checkEvenOrOdd = num => {
+  if (num % 2 === 0) {
+    return 'Even';
+  } else {
+    return 'Odd';
+  }
+};
+
 const dataOutput = async data => {
   const calculatedArray = data.calculatedArray;
   const startingNumber = data.startingNumber;
+  const arrayLength = calculatedArray.length;
+  const seedNumber = document.querySelector('.starting_number');
+  const arrayL = document.querySelector('.array_length');
 
-  const h3 = document.querySelector('.starting_number');
-  h3.innerHTML = `Seed Number: ${startingNumber}`;
+  seedNumber.innerHTML = `Seed Number: ${startingNumber}`;
+  arrayL.innerHTML = `No of iterations: ${arrayLength}`;
   calculatedArray.forEach(calc => {
     let li = document.createElement('li');
-    li.innerText = calc;
+    li.innerText = `${checkEvenOrOdd(calc)}: ${calc}`;
     outputList.append(li);
   });
 };
@@ -20,6 +31,11 @@ const dataOutput = async data => {
 const getNumber = async () => {
   chooseNumberForm.addEventListener('submit', async e => {
     e.preventDefault();
+    if (outputList.hasChildNodes) {
+      outputList.innerHTML = '';
+    } else {
+      return;
+    }
     const number = parseInt(chooseNumber.value);
     const data = await x3n(number);
     dataOutput(data);
